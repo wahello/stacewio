@@ -3,6 +3,7 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/stacew/.io/snsp"
 )
@@ -21,8 +22,7 @@ func main() {
 	http.Handle("/socket.io/", s)
 	http.Handle("/", http.FileServer(http.Dir("./public")))
 
-	err = http.ListenAndServe(":8080", nil) //호출 후에 handler 등록 더 못함
-	if err != nil {
-		log.Fatalln(err)
-	}
+	//호출 후에 handler 등록 더 못함
+	port := ":" + os.Getenv("PORT")
+	log.Fatal(http.ListenAndServe(port, nil))
 }
