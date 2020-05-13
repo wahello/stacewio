@@ -22,7 +22,12 @@ func main() {
 	http.Handle("/socket.io/", s)
 	http.Handle("/", http.FileServer(http.Dir("./public")))
 
+	http.Get("")
 	//호출 후에 handler 등록 더 못함
-	port := ":" + os.Getenv("PORT")
-	log.Fatal(http.ListenAndServe(port, nil))
+
+	port := os.Getenv("PORT") //heroku
+	if port == "" {
+		port = "8080" //local
+	}
+	log.Fatal(http.ListenAndServe(":"+port, nil))
 }
