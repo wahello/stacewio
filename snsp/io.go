@@ -4,8 +4,8 @@ import (
 	"log"
 
 	socketio "github.com/googollee/go-socket.io"
-	"github.com/stacew/gowgtest/4.vanillasocket/snsp/g/g1"
-	"github.com/stacew/gowgtest/4.vanillasocket/snsp/g/g2"
+	"github.com/stacew/.io/snsp/g/g1"
+	"github.com/stacew/.io/snsp/g/g2"
 )
 
 const (

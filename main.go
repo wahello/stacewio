@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/stacew/gowgtest/4.vanillasocket/snsp"
+	"github.com/stacew/.io/snsp"
 )
 
 //complete
@@ -21,7 +21,7 @@ func main() {
 	http.Handle("/socket.io/", s)
 	http.Handle("/", http.FileServer(http.Dir("./public")))
 
-	err = http.ListenAndServe(":3000", nil) //호출 후에 handler 등록 더 못함
+	err = http.ListenAndServe(":8080", nil) //호출 후에 handler 등록 더 못함
 	if err != nil {
 		log.Fatalln(err)
 	}
