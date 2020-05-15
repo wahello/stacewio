@@ -1,0 +1,77 @@
+@import "/global/style.css";
+body{
+    background-color: rgb(30, 30, 30);
+}
+.centerWrapper{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+
+    position: fixed;
+    width: 100%;
+    
+    bottom: 50vh; 
+}
+.titleWrapper{
+    color: wheat;
+    margin: 10px;
+    font-size: 40px;
+    padding: 0px;
+}
+.goBtnWrapper{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+
+    position: fixed;
+    bottom: 50vh;
+    width: 100%;
+}   
+.goBtn{
+    outline: none;
+    justify-content: space-between;    
+    padding: 10px 100px;
+    font-size: 20px;
+    animation-delay: 0.5s;
+}
+
+@keyframes float{
+    0%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(3px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+}
+
+.goBtn1{
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+    animation: float 1s ease-in infinite;
+}
+.goBtn2{
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+    animation: float 1s ease-in infinite;
+}
+
+.licenceWrapper{
+    position: fixed;
+    background-color: rgb(104, 101, 101);
+    color: white;
+    left: 0px;
+    bottom: 0px;
+    padding: 20px;
+    border-radius: var(--boderRadius);
+    box-shadow: var(--boxShadow);
+}
+
+.licence1{
+
+}
+.licence2{
+
+}

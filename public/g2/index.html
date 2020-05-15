@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- meta info -->
+    <title>StaceW.g2</title>
+    <link rel="stylesheet" href="/global/style.css">
+</head>
+
+<body>
+    <button class="homeBtn" onclick="location.href='/';">HOME</button>
+
+    <div class="canvasWrapper">
+        <canvas id="canvas" width="800" height="800"></canvas>
+    </div>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script> const sio = io('/g2'); </script>
+    <script src="/global/global.js"></script>
+    <script src="play.js"></script>
+    <script src="key.js"></script>
+</body>
+
+</html>
