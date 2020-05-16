@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
     <button class="backBtn" onclick="location.href='../';">back</button>
 
     <div class="canvasWrapper">
@@ -18,13 +19,13 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script>
         const sio = io('/yslee/go1');
-        let cID;
-        sio.on('sConID', function (msg) { cID = msg; });
     </script>
     <script src="/yslee/util/canvas.js"></script>
     <script src="asset.js"></script>
-    <script src="util.js"></script>
-    <script src="play.js"></script>
+    <script src="decoder.js"></script>
+    <script src="input.js"></script>
+    <script src="render.js"></script>
+    <script src="zio.js"></script>
 
 </body>
 

@@ -36,7 +36,6 @@ type player struct {
 	height int
 	point  int
 	speed  int //3 px per frame
-	//c     socketio.Conn
 }
 
 type roomInfo struct {
@@ -94,7 +93,7 @@ func newRoom(roomName string) *roomInfo {
 
 func (m *going) jjoinRoom(room *roomInfo, i int, c socketio.Conn) {
 	c.SetContext(i)
-	room.playerMap[c.ID()] = &player{x: 0, width: 30, height: 60, point: 0, speed: 3} //height 20 no die
+	room.playerMap[c.ID()] = &player{x: rand.Intn(canvasX), width: 30, height: 60, point: 0, speed: 3} //height 20 no die
 }
 func (m *going) JoinRoom(c socketio.Conn) string {
 	nMinIndex := -1
@@ -148,6 +147,10 @@ func (m *going) LeaveRoom(c socketio.Conn) string {
 
 	//테스트 기록 : 브라우저 켜놓고 놔둘 시, 5시간 접속되고 있었음.
 	roomName := strconv.Itoa(roomIndex)
+	if _, ok := m.roomSlice[roomIndex].playerMap[c.ID()]; !ok { //예외처리
+		return ""
+	}
+
 	delete(m.roomSlice[roomIndex].playerMap, c.ID())
 	if len(m.roomSlice[roomIndex].playerMap) == 0 {
 		m.roomSlice = append(m.roomSlice[:roomIndex], m.roomSlice[roomIndex+1:]...) //delete center index
@@ -206,7 +209,9 @@ func (m *going) GOGOGO(s *socketio.Server, nsp string) {
 
 				user.point++
 
-				msg = msg + ".u" + key + "," +
+				log.Println("key" + key)
+				msg = msg + ".u" +
+					key + "," +
 					strconv.Itoa(user.x) + "," +
 					strconv.Itoa(user.width) + "," +
 					strconv.Itoa(user.height) + "," +

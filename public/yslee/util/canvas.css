@@ -2,13 +2,116 @@
     display: flex;
     justify-content: center;    
 
-    padding-top: 10vh; 
-    padding-bottom: 2vh;
+    position: fixed;
+    width: 100%;
+    top:10%
 }
 canvas {    
     z-index: 100;
     background-color:darkgrey;
+    border-radius: 2%;
+
+    height: 264px; 
+    width: 264px;
     height: calc(min(88vh,88vw));
     width: calc(min(88vh,88vw));
-    border-radius: 2%;
+}
+
+/* IE랑 Edge는 calc(min())이 안돼서 미디어쿼리 남발...*/
+@media screen and (min-width:400px) and (min-height:400px){
+    canvas{
+        z-index: 100;
+        background-color:darkgrey;
+        border-radius: 2%;
+
+        height: 352px; 
+        width: 352px;
+        height: calc(min(88vh,88vw));
+        width: calc(min(88vh,88vw));
+    }
+}
+@media screen and (min-width:500px) and (min-height:500px){
+    canvas{
+        z-index: 100;
+        background-color:darkgrey;
+        border-radius: 2%;
+
+        height: 440px; 
+        width: 440px;
+        height: calc(min(88vh,88vw));
+        width: calc(min(88vh,88vw));
+    }
+}
+@media screen and (min-width:600px) and (min-height:600px){
+    canvas{
+        z-index: 100;
+        background-color:darkgrey;
+        border-radius: 2%;
+
+        height: 528px; 
+        width: 528px;
+        height: calc(min(88vh,88vw));
+        width: calc(min(88vh,88vw));
+    }
+}
+@media screen and (min-width:700px) and (min-height:700px){
+    canvas{
+        z-index: 100;
+        background-color:darkgrey;
+        border-radius: 2%;
+
+        height: 616px; 
+        width: 616px;
+        height: calc(min(88vh,88vw));
+        width: calc(min(88vh,88vw));
+    }
+}
+@media screen and (min-width:800px) and (min-height:800px){
+    canvas{
+        z-index: 100;
+        background-color:darkgrey;
+        border-radius: 2%;
+
+        height: 704px; 
+        width: 704px;
+        height: calc(min(88vh,88vw));
+        width: calc(min(88vh,88vw));
+    }
+}
+@media screen and (min-width:900px) and (min-height:900px){
+    canvas{
+        z-index: 100;
+        background-color:darkgrey;
+        border-radius: 2%;
+
+        height: 792px; 
+        width: 792px;
+        height: calc(min(88vh,88vw));
+        width: calc(min(88vh,88vw));
+    }
+}
+@media screen and (min-width:1000px) and (min-height:1000px){
+    canvas{
+        z-index: 100;
+        background-color:darkgrey;
+        border-radius: 2%;
+
+        height: 880px; 
+        width: 880px;
+        height: calc(min(88vh,88vw));
+        width: calc(min(88vh,88vw));
+    }
+}
+
+@media screen and (min-width:1200px) and (min-height:1200px){
+    canvas{
+        z-index: 100;
+        background-color:darkgrey;
+        border-radius: 2%;
+
+        height: 1056px; 
+        width: 1056px; 
+        height: calc(min(88vh,88vw));
+        width: calc(min(88vh,88vw));
+    }
 }

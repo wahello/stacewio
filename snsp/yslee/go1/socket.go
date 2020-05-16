@@ -23,15 +23,15 @@ func (m *socket) MakeCustomSocket(s *socketio.Server, nsp string) {
 }
 
 func (m *socket) MakeRoomSocket(s *socketio.Server, nsp string) {
-	s.OnEvent(nsp, "cLeave", func(c socketio.Conn) {
-		if c != nil {
-			roomName := sinterface.LeaveGoingRoom(nsp, c)
-			c.Leave(roomName)
-			return
-		}
+	// s.OnEvent(nsp, "cLeave", func(c socketio.Conn) {
+	// 	if c != nil {
+	// 		roomName := sinterface.LeaveGoingRoom(nsp, c)
+	// 		c.Leave(roomName)
+	// 		return
+	// 	}
 
-		log.Println("[ConnNil]", nsp)
-	})
+	// 	log.Println("[ConnNil]", nsp)
+	// })
 }
 
 func (m *socket) MakeBaseSocket(s *socketio.Server, nsp string) {

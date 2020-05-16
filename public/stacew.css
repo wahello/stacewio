@@ -60,3 +60,7 @@ body{
     padding: calc(min(1vh,1vw));
     background-color: darkgray;
 }
+
+.licence{
+    color:darkslategray;
+}
