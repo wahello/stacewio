@@ -1,1 +1,1 @@
-web: bin/io
+web: bin/.io
