@@ -3,8 +3,9 @@ function pressKey(e) {
 }
 
 //Key input
-document.addEventListener("mousedown", pressKey, false);
-document.addEventListener("touchstart", pressKey, false);
+document.addEventListener("click", pressKey, false);
+// document.addEventListener("mousedown", pressKey, false);
+// document.addEventListener("touchstart", pressKey, false);
 document.addEventListener("keydown", KeyDownHandler, false);
 document.addEventListener("keyup", KeyUpHandler, false);
 let spaceKey;
