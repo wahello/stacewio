@@ -1,0 +1,14 @@
+.canvasWrapper{
+    display: flex;
+    justify-content: center;    
+
+    padding-top: 10vh; 
+    padding-bottom: 2vh;
+}
+canvas {    
+    z-index: 100;
+    background-color:darkgrey;
+    height: calc(min(88vh,88vw));
+    width: calc(min(88vh,88vw));
+    border-radius: 2%;
+}

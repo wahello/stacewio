@@ -2,6 +2,11 @@ package index
 
 import socketio "github.com/googollee/go-socket.io"
 
+//NewGoing is ...
+func NewGoing() *going {
+	return &going{}
+}
+
 type going struct {
 	frame60 int
 }

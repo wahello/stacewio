@@ -2,24 +2,21 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-:root{
-    --boxShadow: 2px 4px 8px rgb(150, 150, 150);
-}
 a:link{
 	text-decoration:none;
-	color:black
+	color:darkslategray;
 }
 a:visited{
 	text-decoration:none;
-	color:black
+	color:darkslategray;
 }
 a:active{
 	text-decoration:none;
-	color:black
+	color:darkslategray;
 }
 a:hover{
 	text-decoration:none;
-	color:black
+	color:darkslategray;
 }
 
 html, body, div, span, applet, object, iframe,

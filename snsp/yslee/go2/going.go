@@ -1,4 +1,4 @@
-package g1
+package go2
 
 import (
 	"log"
@@ -32,15 +32,24 @@ type block struct {
 }
 type player struct {
 	x      int //0 ~ 1000
-	height int //20~250px
-	speed  int //1~3 px per frame
-	c      socketio.Conn
+	width  int
+	height int
+	point  int
+	speed  int //3 px per frame
+	//c     socketio.Conn
 }
 
 type roomInfo struct {
-	blockArr  [maxBlockCount]block
-	playerMap map[string]*player //c.ID()
-	roomName  string
+	blockArr   [maxBlockCount]block
+	playerMap  map[string]*player //key = c.ID()
+	roomName   string
+	roomRanker string
+	roomPoint  int
+}
+
+//NewGoing is ...
+func NewGoing() *going {
+	return &going{}
 }
 
 type going struct {
@@ -85,7 +94,7 @@ func newRoom(roomName string) *roomInfo {
 
 func (m *going) jjoinRoom(room *roomInfo, i int, c socketio.Conn) {
 	c.SetContext(i)
-	room.playerMap[c.ID()] = &player{x: 0, height: 20, speed: 1, c: c} //height 20 no die
+	room.playerMap[c.ID()] = &player{x: 0, width: 30, height: 60, point: 0, speed: 3} //height 20 no die
 }
 func (m *going) JoinRoom(c socketio.Conn) string {
 	nMinIndex := -1
@@ -137,7 +146,7 @@ func (m *going) LeaveRoom(c socketio.Conn) string {
 	//추가 bug : 서버 print resume걸리면서 소켓이 leave가 안 되는 경우가 존재.
 	//전체 룸 순회하면서 정리해주는 함수 작성 하려다가 일단은 1분 정도 지나면 leave 호출되는 것 봐서 skip
 
-	//테스트 기록 : 브라우저 켜놓고 놔둘 시, 5분간 무사고. 다음에 로그로 켜놓고 추가 확인하기.
+	//테스트 기록 : 브라우저 켜놓고 놔둘 시, 5시간 접속되고 있었음.
 	roomName := strconv.Itoa(roomIndex)
 	delete(m.roomSlice[roomIndex].playerMap, c.ID())
 	if len(m.roomSlice[roomIndex].playerMap) == 0 {
@@ -166,16 +175,17 @@ func (m *going) GOGOGO(s *socketio.Server, nsp string) {
 
 		//Play
 		for _, room := range m.roomSlice {
+			var msg string
 
 			//블록 이동
 			for i := 0; i < maxBlockCount; i++ {
-				speed := 2
+				speed := 6
 				block := &room.blockArr[i]
 				if block.blockType == blockTypeSlow ||
 					block.blockType == blockTypeBigSlow {
-					speed = 1
+					speed = 4
 				} else if block.blockType == blockTypeFast {
-					speed = 3
+					speed = 8
 				}
 				block.y = block.y - speed
 
@@ -186,20 +196,32 @@ func (m *going) GOGOGO(s *socketio.Server, nsp string) {
 			}
 
 			//유저 이동
-			for _, user := range room.playerMap {
+			for key, user := range room.playerMap {
 				user.x = user.x + user.speed
 				if user.x <= 0 {
 					user.x = 0
 				} else if user.x >= canvasX {
 					user.x = canvasX
 				}
+
+				user.point++
+
+				msg = msg + ".u" + key + "," +
+					strconv.Itoa(user.x) + "," +
+					strconv.Itoa(user.width) + "," +
+					strconv.Itoa(user.height) + "," +
+					strconv.Itoa(user.speed) + "," +
+					strconv.Itoa(user.point) + ","
 			}
+
 			//충돌 체크
 
-			msg := ""
 			//블록어레이를 문자열로 만들어주는 함수
 			for _, block := range room.blockArr {
-				msg = msg + ".b" + strconv.Itoa(block.x) + "," + strconv.Itoa(block.y) + "," + strconv.Itoa(block.blockType) + ","
+				msg = msg + ".b" +
+					strconv.Itoa(block.x) + "," +
+					strconv.Itoa(block.y) + "," +
+					strconv.Itoa(block.blockType) + ","
 			}
 
 			//유저정볼르 문자열로 만들어주는함수

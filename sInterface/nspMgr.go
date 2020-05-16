@@ -6,7 +6,6 @@ import (
 
 //SocketInterface is
 type SocketInterface interface {
-	StartUp()
 	MakeBaseSocket(s *socketio.Server, nsp string)
 	MakeRoomSocket(s *socketio.Server, nsp string)
 	MakeCustomSocket(s *socketio.Server, nsp string)
@@ -37,7 +36,6 @@ func init() {
 
 //SetHandler is
 func SetHandler(s *socketio.Server, nsp string, socketI SocketInterface, goI GoingInterface, frame60 int) {
-	socketI.StartUp()
 	socketI.MakeBaseSocket(s, nsp)
 	socketI.MakeRoomSocket(s, nsp)
 	socketI.MakeCustomSocket(s, nsp)

@@ -1,0 +1,42 @@
+@import "/reset.css";
+
+body{
+    background-color: black;
+}
+
+.centerWrapper{
+    z-index: 1;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    position: fixed;
+    bottom: 50vh;
+}
+.title{  
+    color: wheat;
+    font-size: 80px;
+    margin: 30px;
+    font-weight: bold;
+}
+.waitingWrapper{
+    z-index: 1;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    position: fixed;
+    bottom: 40vh;
+}
+.waiting{
+    color: wheat;
+    font-size: 50px;
+    margin: 10px;
+    font-weight: bold;
+}

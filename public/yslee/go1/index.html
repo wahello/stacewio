@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>yslee.go1</title>
+    <link rel="stylesheet" href="/yslee/yslee.css">
+    <link rel="stylesheet" href="/yslee/util/canvas.css">
+</head>
+
+<body>
+    <button class="backBtn" onclick="location.href='../';">back</button>
+
+    <div class="canvasWrapper">
+        <canvas id="canvas" width="800" height="800"></canvas>
+    </div>
+
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script>
+        const sio = io('/yslee/go1');
+        let cID;
+        sio.on('sConID', function (msg) { cID = msg; });
+    </script>
+    <script src="/yslee/util/canvas.js"></script>
+    <script src="asset.js"></script>
+    <script src="util.js"></script>
+    <script src="play.js"></script>
+
+</body>
+
+</html>

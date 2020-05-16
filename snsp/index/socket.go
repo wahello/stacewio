@@ -7,12 +7,13 @@ import (
 	socketio "github.com/googollee/go-socket.io"
 )
 
-type socket struct {
-	conCount int64
+//NewSocket is
+func NewSocket() *socket {
+	return &socket{conCount: 0}
 }
 
-func (m *socket) StartUp() {
-	m.conCount = 0
+type socket struct {
+	conCount uint64
 }
 
 func (m *socket) MakeCustomSocket(s *socketio.Server, nsp string) {

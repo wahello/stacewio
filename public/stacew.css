@@ -1,0 +1,62 @@
+@import "/reset.css";
+/* :root{
+    --boxShadow: 2px 4px 8px rgb(150, 150, 150);
+} */
+body{
+    background-color: rgb(50, 50, 50);
+}
+
+.centerWrapper{
+    z-index: 1;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    
+    position: fixed;
+    top : 30%;
+}
+
+.title{  
+    color: wheat;
+    font-size: 10vw;
+    font-size: calc(min(13vh,13vw));
+    margin: 3vw;
+    margin: calc(min(3vh,3vw));
+    font-weight: bold;
+}
+
+
+.goBtn{
+    outline: none;
+    padding: 1vw 5vw;
+    padding: calc(min(1vh,1vw)) calc(min(5vh,5vw));
+    font-size: 4vw;
+    font-size: calc(min(5vh,5vw));
+
+    animation: float 1s ease-in infinite;  
+    animation-delay: 0.5s;    
+}
+
+@keyframes float{
+    0%{     transform: translateY(calc(min(0vh,0vw)));}
+    50%{    transform: translateY(calc(min(2vh,2vw)));}
+    100%{   transform: translateY(calc(min(0vh,0vw)));}
+}
+
+.licenceWrapper{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    color:orangered;
+    font-weight: bold;
+    
+    font-size:1vw;
+    padding: 0.5vw;
+    font-size: calc(min(2vh,2vw));
+    padding: calc(min(1vh,1vw));
+    background-color: darkgray;
+}

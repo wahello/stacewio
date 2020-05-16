@@ -1,4 +1,4 @@
-package g1
+package go1
 
 import (
 	"errors"
@@ -8,10 +8,12 @@ import (
 	sinterface "github.com/stacew/io/sInterface"
 )
 
-type socket struct {
+//NewSocket is
+func NewSocket() *socket {
+	return &socket{}
 }
 
-func (m *socket) StartUp() {
+type socket struct {
 }
 
 func (m *socket) MakeCustomSocket(s *socketio.Server, nsp string) {
