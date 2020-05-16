@@ -12,6 +12,9 @@ func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	log.Println("main()...")
 
+	// log.Println(runtime.GOMAXPROCS(1))
+	// log.Println(runtime.GOMAXPROCS(1))
+
 	s := snsp.NewSocketServer()
 	defer s.Close()
 	go s.Serve()

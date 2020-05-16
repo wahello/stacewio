@@ -53,14 +53,17 @@ function decodeUser(msg, nFindIndex) {
     sC = multi[0];
     multi = msgToken([msg, multi[1]]);
     sX = parseInt(multi[0]);
-    multi = msgToken([msg, multi[1]]);
-    sW = parseInt(multi[0]);
-    multi = msgToken([msg, multi[1]]);
-    sH = parseInt(multi[0]);
+    // multi = msgToken([msg, multi[1]]);
+    // sW = parseInt(multi[0]);
+    sW = 30;
+    // multi = msgToken([msg, multi[1]]);
+    // sH = parseInt(multi[0]);
+    sH = 60;
     multi = msgToken([msg, multi[1]]);
     sS = parseInt(multi[0]);
     multi = msgToken([msg, multi[1]]);
     sP = parseInt(multi[0]);
+
     if (sC == sio.io.engine.id) {
         meX = sX; meW = sW; meH = sH; meS = sS; meP = sP;
     }
@@ -72,13 +75,12 @@ function decodeUser(msg, nFindIndex) {
 }
 function drawUserInfo(sX, sW, sH, sS, sP, me) {
     if (sS < 0) {
-        img = sP % 20 < 10 ? imgl1 : imgl2;
+        img = (sP % 20 < 10) ? (me ? imgl1 : imgll1) : (me ? imgl2 : imgll2);
     } else {
-        img = sP % 20 < 10 ? imgr1 : imgr2;
+        img = (sP % 20 < 10) ? (me ? imgr1 : imgrr1) : (me ? imgr2 : imgrr2);
     }
 
     if (me && sP < 150) {
-        console.log(me);
         DrawCircle(sX, 0, 150 - sP, "black");
     }
 
@@ -93,3 +95,10 @@ function drawMe() {
 function drawMetaInfo(msg, nFindIndex) {
 
 }
+
+
+
+sio.on('sFrame', function (msg) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    drawMsgDecoder(msg);
+});

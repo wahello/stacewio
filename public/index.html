@@ -11,8 +11,8 @@
     <div class="centerWrapper">
         <h1 class="title">StaceW.io</h1>
         <div class="goBtnWrapper">
-            <button class="goBtn goBtn1" onclick="location.href='yslee';">yslee.io</button>
-            <button class="goBtn goBtn2" onclick="location.href='someone';">someone.io</button>
+            <button class="goBtn goBtn1" onclick="location.replace('yslee');">yslee.io</button>
+            <button class="goBtn goBtn2" onclick="location.replace('someone');">someone.io</button>
         </div>
     </div>
 
@@ -23,6 +23,7 @@
         <a class="licence" href="https://github.com/googollee/go-socket.io">//googollee/go-socket.io </a>
     </div>
 
+    <script>history.pushState(null, null, location.href);</script>
 </body>
 
 </html>

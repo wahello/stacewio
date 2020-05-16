@@ -209,12 +209,11 @@ func (m *going) GOGOGO(s *socketio.Server, nsp string) {
 
 				user.point++
 
-				log.Println("key" + key)
 				msg = msg + ".u" +
 					key + "," +
 					strconv.Itoa(user.x) + "," +
-					strconv.Itoa(user.width) + "," +
-					strconv.Itoa(user.height) + "," +
+					// strconv.Itoa(user.width) + "," +
+					// strconv.Itoa(user.height) + "," +
 					strconv.Itoa(user.speed) + "," +
 					strconv.Itoa(user.point) + ","
 			}

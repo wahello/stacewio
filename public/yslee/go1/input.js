@@ -1,25 +1,26 @@
+function pressKey(e) {
+    sio.emit('cPressKey');
+}
+
 //Key input
-document.addEventListener("keydown", OneDownHandler, false);
-document.addEventListener("keyup", OneUpHandler, false);
-document.addEventListener("touchstart", OneDownHandler, false);
-document.addEventListener("touchend", OneUpHandler, false);
-document.addEventListener("mousedown", OneDownHandler, false);
-document.addEventListener("mouseup", OneUpHandler);
-let onePressed = false;
-function OneDownHandler(e) {
-    if (onePressed == true) {
+document.addEventListener("mousedown", pressKey, false);
+document.addEventListener("touchstart", pressKey, false);
+document.addEventListener("keydown", KeyDownHandler, false);
+document.addEventListener("keyup", KeyUpHandler, false);
+let spaceKey;
+function KeyDownHandler(e) {
+    if (spaceKey == true)
         return;
-    }
-    if (e.key == "Spacebar" || e.key == " " ||
-        e.type == "mousedown" || e.type == "touchstart") {
-        onePressed = true;
-        pressKey();
+    if (e.key == "Spacebar" || e.key == " ") {
+        pressKey(e);
+        spaceKey = true;
     }
 }
-function OneUpHandler(e) {
-    if (e.key == "Spacebar" || e.key == " " ||
-        e.type == "mouseup" || e.type == "touchend") {
-        onePressed = false;
-    }
+function KeyUpHandler(e) {
+    if (e.key == "Spacebar" || e.key == " ")
+        spaceKey = false;
 }
+
+
+
 
