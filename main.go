@@ -4,8 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-
-	snsp "github.com/stacew/io/sNSP"
+	snsp "stacew/stacewio/sNSP"
 )
 
 func main() {

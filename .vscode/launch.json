@@ -8,7 +8,7 @@
             "name": "debug",
             "type": "go",
             "request": "launch",
-            "program": "${env:GOPATH}/src/github.com/stacew/io/main.go",
+            "program": "${env:GOBIN}/stacewio/main.go",
         }
     ]
 }

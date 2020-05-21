@@ -2,10 +2,9 @@ package yslee
 
 import (
 	"log"
-
-	sinterface "github.com/stacew/io/sInterface"
-	"github.com/stacew/io/sNSP/yslee/go1"
-	"github.com/stacew/io/sNSP/yslee/go2"
+	sinterface "stacew/stacewio/sInterface"
+	"stacew/stacewio/sNSP/yslee/go1"
+	"stacew/stacewio/sNSP/yslee/go2"
 )
 
 //GetNewHandler is

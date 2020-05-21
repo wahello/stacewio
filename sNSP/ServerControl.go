@@ -2,11 +2,11 @@ package snsp
 
 import (
 	"log"
+	sinterface "stacew/stacewio/sInterface"
+	"stacew/stacewio/sNSP/index"
+	"stacew/stacewio/sNSP/yslee"
 
 	socketio "github.com/googollee/go-socket.io"
-	sinterface "github.com/stacew/io/sInterface"
-	"github.com/stacew/io/sNSP/index"
-	"github.com/stacew/io/sNSP/yslee"
 )
 
 //NewSocketioServer is

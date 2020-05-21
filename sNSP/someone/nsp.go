@@ -1,8 +1,6 @@
 package someone
 
-import (
-	sinterface "github.com/stacew/io/sInterface"
-)
+import sinterface "stacew/stacewio/sInterface"
 
 //GetNewHandler is
 func GetNewHandler(sub string) (string, sinterface.SocketInterface, sinterface.GoingInterface) {

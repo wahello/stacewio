@@ -3,9 +3,9 @@ package go2
 import (
 	"errors"
 	"log"
+	sinterface "stacew/stacewio/sInterface"
 
 	socketio "github.com/googollee/go-socket.io"
-	sinterface "github.com/stacew/io/sInterface"
 )
 
 //NewSocket is
